@@ -1,0 +1,22 @@
+# Site settings
+title: "Praxis Efficax"
+description: "Effective practices for digital businesses."
+baseurl: ''
+url: ''
+# google_analytics: 'UA-XXXXXX-X'
+
+# Build settings
+markdown: kramdown
+
+exclude:
+  - assets
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+permalink: "/:title/"
+
+plugins: [jekyll-paginate]
+
+paginate: 10
