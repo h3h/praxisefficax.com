@@ -1,5 +1,6 @@
 ---
 ---
+@use 'sass:color';
 
 @import 'palette';
 @import 'normalize.css';
@@ -11,13 +12,13 @@
   box-sizing: border-box;
 }
 html, body {
+  font-size: 16px;
   height: 100%;
 }
 body {
   padding: 0;
   margin: 0;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
   line-height: 1.6;
   color: $snow;
   background-color: $indigo-dye;
@@ -148,18 +149,118 @@ a.header-link:active {
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
   margin-bottom: 1rem;
   font-weight: normal;
-  color: $cadet-gray;
-
-  @media screen and (min-width:64em) {
-    margin-top: 2rem;
-  }
-  @media screen and (max-width:64em) {
-    margin-top: 0.25rem;
-  }
+  color: $electric-blue;
 }
 
-.index-page {
-  margin-bottom: 4rem;
+
+// =============================================================================
+// Index page specifics
+// =============================================================================
+$vertical-section-gap: 5rem;
+
+article.index-page {
+  @media screen and (min-width:64em) {
+    margin-bottom: 4rem;
+  }
+
+  & > h1 {
+    color: $naples-yellow;
+    margin-top: $vertical-section-gap;
+
+    @media screen and (min-width:64em) {
+      margin-top: 3rem;
+    }
+    @media screen and (max-width:64em) {
+      margin-top: 0.25rem;
+    }
+  }
+
+  aside.punch-line {
+    color: $electric-blue;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: $vertical-section-gap 2.25rem;
+    text-align: center;
+
+    @media screen and (min-width: 64em) {
+      font-size: 2.5rem;
+    }
+    @media screen and (max-width: 64em) {
+      font-size: 2rem;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  dl.starting-points {
+    dt {
+      color: $electric-blue;
+      font-family: 'Montserrat', sans-serif;
+
+      @media screen and (min-width: 64em) {
+        font-size: 2rem;
+      }
+      @media screen and (max-width: 64em) {
+        font-size: 1.2rem;
+      }
+    }
+    dd {
+      margin: 0 2rem;
+    }
+    dt:nth-of-type(2n) {
+      text-align: right;
+    }
+    dt:nth-child(n+2) {
+      margin-top: 2.5rem;
+    }
+
+    dd:before {
+      content: "→";
+      font-size: 1.5em;
+      padding-right: 0.8rem;
+    }
+    // in between each dt/dd pair (after every except the last)
+    dd:not(:nth-last-of-type(1)):after {
+      border-bottom: 1px solid $cadet-gray;
+      display: block;
+      content: "";
+      margin: 2.5rem auto;
+      opacity: 0.5;
+      width: 12rem;
+    }
+  }
+
+  p.call-to-action {
+    text-align: center;
+    margin: $vertical-section-gap 0;
+
+    & > a {
+      border-radius: 0.5rem;
+      box-shadow: 3px 3px 6px $near-black-mid-opaque;
+      font-size: 1.5rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      transition: box-shadow 0.35s;
+    }
+    & > a:link,
+    & > a:visited,
+    & > a:active {
+      color: $near-black;
+      background-color: $naples-yellow;
+    }
+    & > a:hover {
+      box-shadow: 2px 2px 3px transparentize($snow, 0.35);
+    }
+    & > a:active {
+      box-shadow: none;
+    }
+  }
+
+  li {
+    font-size: 1.25rem;
+  }
 
   figure.headshot {
     float: right;
@@ -170,9 +271,28 @@ a.header-link:active {
       outline: 2px solid $cadet-gray;
       box-shadow: 5px 5px 20px 10px $near-black-near-opaque;
     }
+
+    @media screen and (min-width:64em) {
+      margin: 0 1rem 1rem;
+
+      img {
+        height: 180px;
+        width: 180px;
+      }
+    }
+    @media screen and (max-width:64em) {
+      margin: 0 0.5rem 0.5rem;
+
+      img {
+        height: 120px;
+        width: 120px;
+      }
+    }
   }
 
-  em {
+  li em,
+  dd em,
+  p em {
     background-color: $indigo-dye;
     color: $electric-blue;
     font-weight: 500;
@@ -193,7 +313,7 @@ a.header-link:active {
 
   h2 {
     color: $snow;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.25em;
   }
@@ -323,6 +443,7 @@ a.header-link:active {
 }
 .main-content dl dd {
   padding: 0;
+  margin-left: 2rem;
   margin-bottom: 1rem;
 }
 .main-content ul {
