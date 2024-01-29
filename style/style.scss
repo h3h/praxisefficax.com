@@ -146,6 +146,28 @@ a.header-link:active {
   font-size: 1.75rem;
   clear: right;
 }
+.main-content {
+  & > h1:first-of-type {
+    color: $naples-yellow;
+    font-size: 2.25rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  h6 {
+    font-size: 0.8rem;
+  }
+}
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
   margin-bottom: 1rem;
   font-weight: normal;
